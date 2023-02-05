@@ -11,14 +11,9 @@ const app  = express()
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 app.use(cors({
-    origin:[
-        "http://localhost:3000",
-        "https://zocket-app-nitin.onrender.com/",
-        "http://zocket-app-nitin.onrender.com/",
-        "https://zocket-app-nitin.onrender.com",
-        "http://zocket-app-nitin.onrender.com",
-    ]
-}));
+    origin:"*",
+})
+);
 app.use(taskRoutes);
 
 //routes
