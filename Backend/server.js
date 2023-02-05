@@ -7,17 +7,18 @@ const taskRoutes = require("./routes/taskRoutes");
 
 const app  = express()
 
-//middlewares  
-const corsOpts = {
-    origin: '*',
-    credentials: true,
-    methods: ['GET','POST','HEAD','PUT','PATCH','DELETE'],
-    allowedHeaders: ['Content-Type'],
-    exposedHeaders: ['Content-Type']
-};
-app.use(cors(corsOpts));
+//middlewares
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
+app.use(cors({
+    origin:[
+        "http://localhost:3000",
+        "https://zocket-app-nitin.onrender.com/",
+        "http://zocket-app-nitin.onrender.com/",
+        "https://zocket-app-nitin.onrender.com",
+        "http://zocket-app-nitin.onrender.com",
+    ]
+}));
 app.use(taskRoutes);
 
 //routes
