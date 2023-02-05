@@ -8,12 +8,7 @@ const taskRoutes = require("./routes/taskRoutes");
 const app  = express()
 
 //middlewares
-app.use(cors({
-    origin:[
-        "http://localhost:3000",
-        "https://zocket-app-nitin.onrender.com/",
-    ]
-}));
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 app.use(taskRoutes);
